@@ -1,0 +1,39 @@
+<div class="classroom-table">
+    <app-classrooms-table [classrooms]="classrooms" (onEdit)="onEditClassroom($event)"></app-classrooms-table>
+</div>
+
+<button pButton type="button" icon="pi pi-plus" label="Create new Classroom" (click)="createNewClassroom()" class="ui-button-success"></button>
+<!-- 
+<div class="my-form">
+    <div class="ui-g ui-fluid">
+        <div class="ui-g-12 ui-md-6">
+            <div class="ui-inputgroup">
+                <span class="ui-float-label">
+                    <input id="float-input1" type="text" size="30" pInputText> 
+                    <label for="float-input1">Username</label>
+                </span>       
+            </div>
+        </div>
+        
+        <div class="ui-g-12 ui-md-6">
+            <div class="input-group input-invalid">
+                <span class="ui-float-label">
+                    <input id="float-input2" type="text" size="30" pInputText> 
+                    <label for="float-input2">Username</label>
+                </span>
+                <div class="error-message">Password is a required field.</div>
+            </div>
+        </div>
+                
+        <div class="ui-g-12 ui-md-6">
+            <div class="ui-inputgroup">
+                <span class="ui-float-label">
+                    <input id="float-input3" type="text" size="30" pInputText> 
+                    <label for="float-input3">Username</label>
+                </span>    
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<app-classroom-form #classroomForm></app-classroom-form>

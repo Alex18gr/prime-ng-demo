@@ -1,4 +1,5 @@
 import { Component, OnInit, ElementRef, ViewChild, Renderer2 } from '@angular/core';
+import * as FaIcons from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-navbar',
@@ -10,6 +11,7 @@ export class NavbarComponent implements OnInit {
   @ViewChild('overlay', {static: false}) overlayElement: ElementRef;
   
   sidebarCollpsed: boolean = true;
+  bannerIcon = FaIcons.faUmbrellaBeach;
 
   constructor(private renderer: Renderer2) { }
 

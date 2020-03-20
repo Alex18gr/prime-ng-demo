@@ -1,0 +1,29 @@
+.my-form {
+    margin-top: 25px;
+}
+
+// Form styles
+
+.input-group.input-invalid {
+
+    input {
+       border: 1px solid red; 
+    }
+    
+    
+    label {
+       color: red !important;
+    }
+    
+
+    .error-message {
+        color: red;
+        font-size: smaller;
+    }
+
+}
+
+.classroom-table {
+    margin-top: 60px;
+    margin-bottom: 10px;
+}

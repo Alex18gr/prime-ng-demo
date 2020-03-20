@@ -1,0 +1,26 @@
+:host ::ng-deep .my-dialog {
+    width: 85vw;;
+}
+
+.input-group.input-invalid {
+
+    input {
+       border: 1px solid red; 
+    }
+    
+    
+    label {
+       color: red !important;
+    }
+    
+
+    .error-message {
+        color: red;
+        font-size: smaller;
+    }
+
+}
+
+.content {
+    margin: 10px 0;
+}

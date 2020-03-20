@@ -1,0 +1,46 @@
+<div>
+    <p-dialog [(visible)]="displayDialog" [blockScroll]="true" [modal]="true" styleClass="my-dialog" [draggable]="false">
+        <p-header>
+            {{ title }}
+        </p-header>
+        
+        <div class="content">
+            
+        </div>
+        
+        <form [formGroup]="classroomForm">
+
+            <div class="ui-g-12 ui-md-6">
+                <div class="input-group input-invalid" [ngClass]="{'input-invalid': isInvalidControlCondition(classroomForm.controls.name)}">
+                    <span class="ui-float-label">
+                        <input id="classroom-name" formControlName="name" type="text" size="50" pInputText> 
+                        <label for="classroom-name">Classroom Name</label>
+                    </span>
+                    <div *ngIf="isInvalidControlCondition(classroomForm.controls.name)" class="error-message">This field is required</div>
+                </div>
+            </div>
+
+            <!-- <div class="ui-g-12 ui-md-6">
+                <div class="input-group input-invalid">
+                    <span class="ui-float-label">
+                        <input id="float-input2" type="text" size="30" pInputText> 
+                        <label for="float-input2">Username</label>
+                    </span>
+                    <div class="error-message">Password is a required field.</div>
+                </div>
+            </div> -->
+
+
+            <!-- <div class="ui-g-12 ui-md-6">
+                <p-calendar appendTo="body"></p-calendar>
+            </div> -->
+            
+        </form>
+
+
+        <p-footer>
+            <button pButton type="button" icon="pi pi-save" class="ui-button-info" label="Save"></button>
+            <button pButton type="button" icon="pi pi-ban" class="ui-button-danger" label="Cancel" (click)="hideDialog()"></button>
+        </p-footer>
+    </p-dialog>
+</div>
