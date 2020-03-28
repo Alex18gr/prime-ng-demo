@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Classroom } from '../models/classroom.model';
 import { Student } from '../models/student.model';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Page } from '../models/page.model';
 
 @Injectable({
   providedIn: 'root'
@@ -27,9 +29,17 @@ export class StudentService {
     return this.httpClient.delete<Student>(url);
   }
 
-  getAllStudents() {
+  getAllStudents(page?: number, size?: number): Observable<Page<Student>> {
+    
     const url = this.apiUrl + 'students';
-    return this.httpClient.get<Student[]>(url);
+    
+    if (page !== null && size !== null) {
+      let params = new HttpParams().set('page', page.toString()).set('size', size.toString());
+      return this.httpClient.get<Page<Student>>(url, {params});
+    } else {
+      return this.httpClient.get<Page<Student>>(url);
+    }
+    
   }
 
   getStudent(studentId: number) {

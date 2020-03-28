@@ -1,0 +1,18 @@
+<div>
+    <p-dialog [(visible)]="displayDialog" [blockScroll]="true" [modal]="true" styleClass="my-dialog" [draggable]="false">
+        <p-header>
+            {{ title }}
+        </p-header>
+        
+        <div class="content" *ngIf="deleteClassroom">
+
+            <p>Are you sure you want to delete classroom {{ deleteClassroom.name }}?</p>
+            
+        </div>
+
+        <p-footer>
+            <button pButton type="button" icon="pi pi-save" class="ui-button-danger" label="Delete" (click)="deleteCurrentClassroom()"></button>
+            <button pButton type="button" icon="pi pi-ban" class="ui-button-info" label="Cancel" (click)="hideDialog()"></button>
+        </p-footer>
+    </p-dialog>
+</div>

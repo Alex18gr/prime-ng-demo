@@ -11,7 +11,7 @@ export class NavbarComponent implements OnInit {
   @ViewChild('overlay', {static: false}) overlayElement: ElementRef;
   
   sidebarCollpsed: boolean = true;
-  bannerIcon = FaIcons.faUmbrellaBeach;
+  bannerIcon = FaIcons.faChalkboardTeacher;
 
   constructor(private renderer: Renderer2) { }
 
@@ -26,6 +26,12 @@ export class NavbarComponent implements OnInit {
     } else {
       this.renderer.addClass(this.sidebarElement.nativeElement, 'active');
       this.sidebarCollpsed = false;
+    }
+  }
+
+  linkClicked() {
+    if (window.innerWidth <= 700) {
+      this.collapseSidebar();
     }
   }
 }

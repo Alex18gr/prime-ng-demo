@@ -15,6 +15,8 @@ import { ClassroomsTableComponent } from './classroom/classrooms-table/classroom
 import { OverlayComponent } from './home/overlay/overlay.component';
 import { ClassroomFormComponent } from './classroom/classroom-form/classroom-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ClassroomDeleteDialogComponent } from './classroom/classroom-delete-dialog/classroom-delete-dialog.component';
+import { StudentsTableComponent } from './student/students-table/students-table.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     StudentsComponent,
     ClassroomsTableComponent,
     OverlayComponent,
-    ClassroomFormComponent
+    ClassroomFormComponent,
+    ClassroomDeleteDialogComponent,
+    StudentsTableComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,5 @@
 <div class="classroom-table">
-    <app-classrooms-table [classrooms]="classrooms" (onEdit)="onEditClassroom($event)"></app-classrooms-table>
+    <app-classrooms-table [classrooms]="classrooms" (onEdit)="onEditClassroom($event)" (onDelete)="onDeleteClassroom($event)"></app-classrooms-table>
 </div>
 
 <button pButton type="button" icon="pi pi-plus" label="Create new Classroom" (click)="createNewClassroom()" class="ui-button-success"></button>
@@ -36,4 +36,5 @@
     </div>
 </div> -->
 
-<app-classroom-form #classroomForm></app-classroom-form>
+<app-classroom-form #classroomForm (classrooomSaved)="getClassroomData()"></app-classroom-form>
+<app-classroom-delete-dialog #deleteClassroomDialog (classroomDeleted)="getClassroomData()"></app-classroom-delete-dialog>
