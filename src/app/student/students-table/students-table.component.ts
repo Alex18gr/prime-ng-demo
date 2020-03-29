@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { LazyLoadEvent } from 'primeng/api/public_api';
 import { Student } from 'src/app/models/student.model';
 import { StudentService } from '../student.service';
@@ -10,6 +10,8 @@ import { Page } from 'src/app/models/page.model';
   styleUrls: ['./students-table.component.scss']
 })
 export class StudentsTableComponent implements OnInit {
+  @Output() onRowSelected: EventEmitter<Student> = new EventEmitter();
+  @Output() onRowUnselected: EventEmitter<Student> = new EventEmitter();
   totalRecords: number;
   students: Student[];
   studentsPageData: Page<Student>;
@@ -35,10 +37,18 @@ export class StudentsTableComponent implements OnInit {
     this.studentService.getAllStudents(0, this.rows).subscribe((data: Page<Student>) => {
       this.studentsPageData = new Page(data);
       this.totalRecords = this.studentsPageData.totalElements;
-      this.firstElementIndex = this.studentsPageData.number * this.studentsPageData.numberOfElements;
+      this.firstElementIndex = this.studentsPageData.number * this.studentsPageData.size;
       this.students = this.studentsPageData.content;
       this.dataLoaded = true;
     });
+
+  }
+
+  rowUnselected(row: Student) {
+
+  }
+
+  rowSelected(row: Student) {
 
   }
 
@@ -57,7 +67,8 @@ export class StudentsTableComponent implements OnInit {
     this.dataLoading = false;
     this.studentService.getAllStudents(page, this.rows).subscribe((data: Page<Student>) => {
       this.studentsPageData = new Page(data);
-      this.firstElementIndex = this.studentsPageData.number * this.studentsPageData.numberOfElements;
+      this.totalRecords = this.studentsPageData.totalElements;
+      this.firstElementIndex = this.studentsPageData.number * this.studentsPageData.size;
       this.students = this.studentsPageData.content;
       this.dataLoading = true;
     });
